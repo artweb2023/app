@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora&family=Oxygen&family=Roboto&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="static/css/login.css">
+    <script type="text/javascript" src="static/js/login.js"></script>
+    <title>Login</title>
+</head>
+
+<body>
+    <main class="main">
+        <div class="content-login">
+            <form class="content-form" method="post">
+                <h1 class="content-login__tittle">Вход</h1>
+                <div class="content-status no-show">
+                    <span class="content-status__icon"></span>
+                    <p class="content-status__text"></p>
+                </div>
+                <label class="content-form__lable">Email
+                    <input class="content-form__input border" type="text" name="email">
+                </label>
+                <p class="content-form__alert no-show">Email is required.</p>
+                <label class="content-form__lable password">Password
+                    <input class="content-form__input border" type="password" name="password">
+                    <span class="content-form__icon"></span>
+                </label>
+                <p class="content-form__alert no-show">Password is required.</p>
+                <button class="content-form__button">Войти</button>
+            </form>
+        </div>
+    </main>
+</body>
+
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="static/css/dashboard.css">
+    <script type="text/javascript" src="static/js/dashbord.js"></script>
+    <title>Dashbord</title>
+</head>
+
+<body>
+    <header class="header">
+        <a href="#" class="header-link">{{.UserFullName}}</a>
+        <button class="header-button">Выход</button>
+    </header>
+    <section>
+        <div class="tbl-header">
+            <table cellpadding="0" cellspacing="0" border="0">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Номер счета</th>
+                        <th>Фамилия</th>
+                        <th>Имя</th>
+                        <th>Отчество</th>
+                        <th>Дата Рождения</th>
+                        <th>ИНН</th>
+                        <th>Статус</th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+        <div class="tbl-content">
+            <table cellpadding="0" cellspacing="0" border="0">
+                <tbody>
+                    {{ range $index, $customer := .Customers }}
+                    <tr>
+                        <td>{{ $customer.CustomerId }}</td>
+                        <td>{{ $customer.AccountNumber }}</td>
+                        <td>{{ $customer.LastName }}</td>
+                        <td>{{ $customer.FirstName }}</td>
+                        <td>{{ $customer.MiddleName }}</td>
+                        <td>{{ index $.Dob $index }}</td>
+                        <td>{{ $customer.TaxId }}</td>
+                        <td>
+                            <button class="link-change open-modal-btn" data-customer-id="{{ $customer.CustomerId }}">
+                                {{$customer.Status }}
+                            </button>
+                            <div class="modal">
+                                <svg class="modal-cross" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                    <path
+                                        d="M23.954 21.03l-9.184-9.095 9.092-9.174-2.832-2.807-9.09 9.179-9.176-9.088-2.81 2.81 9.186 9.105-9.095 9.184 2.81 2.81 9.112-9.192 9.18 9.1z" />
+                                </svg>
+                                <form class="modal-form" method="post">
+                                    <select name="status">
+                                        <option value="В работе">В работе</option>
+                                        <option value="Отказ">Отказ</option>
+                                        <option value="Сделка закрыта">Сделка закрыта</option>
+                                    </select>
+                                    <button class="modal-form__button" type="submit">Update</button>
+                                </form>
+                            </div>
+                        </td>
+                    </tr>
+                    {{ end }}
+                </tbody>
+            </table>
+        </div>
+    </section>
+</body>
+
+
+</html>
